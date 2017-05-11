@@ -1,0 +1,60 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          <h1 id="title_text"> <img id="burger_image" src="/assets/burger_image.png" alt="Burger"> Burger Devourer</h1>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <form action="/" method="POST">
+    <div class="form-group">
+      <label for="user_burger">Burger Name:</label>
+      <input type="text" class="form-control" id="user_burger" name="burger_name" placeholder="enter your dream burger name here">
+    </div>
+    <div class="form-group">
+      <label for="devoured">Devoured already?</label><br>
+      <input type="radio" name="devoured" value="1" checked> Yep!<br>
+      <input type="radio" name="devoured" value="0"> Not Yet
+    </div>
+    <button type="submit" class="btn btn-default" id="submit_button">Submit Burger</button>
+  </form>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3> Burgers still to be devoured: </h3>
+      <ul>
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <li>
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                {{this.id}} {{this.burger_name}}
+                <button type="submit" class="btn btn-default" name="devoured" id="devour_button" value="1">Devour Burger</button>
+              </form>
+              <br>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h3> Burgers already devoured: </h3>
+      <ul>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <li>
+              {{this.id}} {{this.burger_name}}
+              <br>
+            </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+
+
+    </div>
+  </div>
+
+
+
+</div>
