@@ -1,1 +1,1 @@
-SELECT * FROM burgers_db.burgers;
+SELECT * FROM sequelizedBurger_db.burgers;

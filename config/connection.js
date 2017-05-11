@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "marvin",
-  database: "burgers_db"
+  database: "SequelizedBurger_db"
 });
 
 if (process.env.JAWSDB_URL) {
@@ -16,7 +16,7 @@ if (process.env.JAWSDB_URL) {
     host: 'localhost',
     user: 'root',
     password: 'marvin',
-    database: 'burgers_db'
+    database: "SequelizedBurger_db"
   });
 };
 
